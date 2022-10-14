@@ -1,0 +1,17 @@
+name: Signature
+description: Sign the petition
+labels: [signature]
+body:
+- type: textarea
+  id: name
+  attributes:
+    label: Your name
+  validations:
+    required: true
+- type: textarea
+  id: signature
+  attributes:
+    label: Your signature
+  validations:
+    required: true
+
