@@ -3,7 +3,7 @@ name: Sign by Issuue
 on:
   workflow_dispatch:
     branches:
-    - master
+    - main
 
 jobs:
   test_issue_tracker:
