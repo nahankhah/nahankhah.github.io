@@ -1,8 +1,8 @@
-name: Test tracker
+name: Sign by Issuue
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '50,55,0,5,10 * * * *'
 
 jobs:
   test_issue_tracker:
