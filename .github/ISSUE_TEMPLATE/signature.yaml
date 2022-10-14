@@ -1,13 +1,19 @@
 name: Signature
 description: Sign the petition
-labels: [signature]
+labels: [add-signature]
 body:
-- type: textarea
+- type: input
   id: name
   attributes:
     label: Your name
   validations:
     required: true
+- type: input
+  id: email
+  attributes:
+    label: Your email
+  validations:
+    required: false
 - type: textarea
   id: signature
   attributes:
