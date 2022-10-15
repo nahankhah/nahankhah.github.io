@@ -17,15 +17,11 @@ jobs:
       uses: freethem-petition/sign-by-issue-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Commit and create PR
-      run: |
-        # git commit if there's any change
-        git status
-        if test -n "$(git status --porcelain 2>/dev/null)"; then
-            git config --global user.email "freethempetition@protonmail.com"
-            git config --global user.name "freethem-petition"
-            git add .
-            git checkout -b new-signatures-$(date "+%FT%H-%M")
-            git commit -m "Add new signatures"
-            git push -u origin new-signatures-$(date "+%FT%H-%M")
-        fi
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        branch: add-signatures
+        branch-suffix: timestamp
+        add-paths: |
+          SIGNATURES/*.sig
+          STATEMENT/SHA256SUMS.asc
