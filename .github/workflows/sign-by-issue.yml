@@ -8,12 +8,24 @@ on:
 jobs:
   test_issue_tracker:
     runs-on: ubuntu-latest
-    name: A job to test issue tracker
+    name: A job to add signatures to statement
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-    - name: Track issues
-      id: tracking
+    - name: Extract signatures
+      id: signatures
       uses: freethem-petition/sign-by-issue-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Commit and create PR
+      run: |
+        # git commit if there's any change
+        git status
+        if test -n "$(git status --porcelain 2>/dev/null)"; then
+            git config --global user.email "freethempetition@protonmail.com"
+            git config --global user.name "freethem-petition"
+            git add .
+            git checkout -b new-signatures-$(date "+%FT%H-%M")
+            git commit -m "Add new signatures"
+            git push -u origin new-signatures-$(date "+%FT%H-%M")
+        fi
