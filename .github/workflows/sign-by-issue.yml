@@ -22,6 +22,7 @@ jobs:
       with:
         branch: add-signatures
         branch-suffix: timestamp
+        base: main
         add-paths: |
           SIGNATURES/*.sig
           STATEMENT/SHA256SUMS.asc
