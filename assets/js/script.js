@@ -252,7 +252,7 @@ $(document).ready(function() {
 
   // SIGN
   const statementChecksums = {
-    "statement-1": `9d7ff0adad9df7b8e2dfdd067de8f1d4ba999db8b9cbe38254cf939c36c4bd2a  TEST.cleaned.pdf`
+    "statement-1": "d5d1cb1fcdb8484a10ac14e860dc96e6b949063a2a2a79f7e5dcebccabb4c9a7  S001_1401-07-25.pdf\n"
   }
   var signButton = $("#sign-button");
 
