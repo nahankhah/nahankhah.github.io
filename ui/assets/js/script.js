@@ -238,7 +238,7 @@ $(document).ready(function() {
     signature = "```SIGNATURE\n" + signature + "\n```";
     var signatureUriEncoded = encodeURIComponent(signature);
 
-    const issuesURL = "https://github.com/freethem-petition/statement/issues/new?labels=add-signature&template=signature.yaml"
+    const issuesURL = "https://github.com/nahankhah/nahankhah.github.io/issues/new?labels=add-signature&template=signature.yaml"
 
     const url = `${issuesURL}&title=${title}&name=${name}&email=${email}&signature=${signatureUriEncoded}`
     
