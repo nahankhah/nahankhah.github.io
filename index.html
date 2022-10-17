@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Set charset to UTF-8 -->
+    <meta charset="utf-8">
+
+    <div class="title">
+        <title>نهان‌خواه</title>
+    </div>
+    
+    <meta title="نهان‌خواه">
+    <meta name="description" content="بیانیه های نهان‌خواه - ابزار امضاء دیجیتال بیانیه ها">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-rtl.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="assets/css/custom.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/kbpgp.js"></script>
+    <script type="text/javascript" src="assets/js/FileSaver.js"></script>
+    <script type="text/javascript" src="assets/js/pgpkeygen.js"></script>
+    <script type="text/javascript" src="assets/js/openpgp.min.js"></script>
+
+    <!--[if IE 9]>
+        <script type="text/javascript" src="index_files/js/placeholder.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="assets/js/script.js"></script>
+</head>
+
+<body>
+    <div id="filename_temp" style="display:none;" title="This is temp div for saving here a file name if file was been loaded by input.">pgp-message</div>
+    <!--status notification-->
+    <div class="hidden">
+        <div class="alert alert-success fade in" id="vrSuccess">
+            <button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button><span id="vrAddrLabel"></span>
+        </div>
+        <div class="alert alert-danger fade in" id="vrError">
+            <button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button><span id="vrAddrLabel"></span>
+        </div>
+        <div class="alert alert-warning fade in" id="vrWarning">
+            <button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button><span id="vrAddrLabel"></span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row content">
+            <div class="col-md-12">
+
+                <div class="page-header">
+                    <h1 class="title">نهان‌خواه</h1>
+                    ابزار ساده سازی امضای بیانیه ها
+                </div>
+                <div class="tabbable">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="index.html#about" aria-controls="about" role="tab" data-toggle="tab">درباره</a></li>
+                        <li role="presentation"><a href="index.html#generator" aria-controls="generator" role="tab" data-toggle="tab">ساخت کلید</a></li>
+                        <li role="presentation"><a href="index.html#sign" aria-controls="sign" role="tab" data-toggle="tab">تولید امضا</a></li>
+                        <li role="presentation" class="disabled"><a href="javascript:void(0)" style="pointer-events: none" aria-controls="verify" role="tab" data-toggle="tab">چک کردن امضا</a></li>
+                        <li role="presentation" class="disabled"><a href="javascript:void(0)" style="pointer-events: none" aria-controls="faq" role="tab" data-toggle="tab">سوالات متداول</a></li>
+                        <li role="presentation" class="disabled"><a href="javascript:void(0)" style="pointer-events: none" aria-controls="signers" role="tab" data-toggle="tab">امضاء کنندگان (بزودی)</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+
+                        <!-- About -->
+                        <div role="tabpanel" class="tab-pane active" id="about">
+                            <blockquote>
+                                متن بیانیه شماره ۱ - ۲۵ مهرماه ۱۴۰۱
+                            </blockquote>
+
+                            <p>
+                                به نام آزادی
+                            </p>
+                            
+                            <p>
+                                ما، شیفتگان آزادی، حریم خصوصی و عدم تمرکزیم که در پی کشته شدن برادران و خواهران‌مان و حبسِ بی دلیل و بی‌پاسخِ دوستانِ فعال و دلسوزِ کامیونیتی و باقی هموطنانِ بی صدایمان، این اتفاقات را محکوم می‌کنیم. به ویژه با توجه به اتفاقات مشکوک و ترسناکِ رخ داده در زندان اوین، ما شدیدا نگرانِ وضعیت جسمی و روحی برادران و خواهرانِ محبوسمان بوده و افزون بر آگاهی از وضعیت آنان، خواستار آزادی هرچه سریع‌تر ایشان هستیم.
+                            </p>
+
+                            <p>
+                                ما، به‌عنوان مردمی آزاد، به سازمان‌های ذی‌صلاح و ذی‌قدرت اعلام می‌نماییم که ایجاد اختلال و قطع دسترسی مردم به اینترنت آزاد، عملی شنیع، جنایتی عظیم و تصمیمی قبیح است که نه تنها غیرقابل پذیرش بوده بلکه مخالف حقوق بنیادین و اساسی بشریت است.
+                            </p>
+
+                            <p>
+                                همه می‌دانیم که در این راه تنها به قدرت جمعی خودمان وابسته‌ایم، چراکه از همراهی انجمن‌های به ظاهر مردم نهاد و صنفیِ دولتی و غیر دولتی برای پیگیری از نهادهای ذی‌ربط و حتی در حد ابراز نگرانی جهت حمایت و همراهی با کامیونیتی ناامید و از سکوت آنها آزرده‌ایم.
+                            </p>
+
+                            <p>
+                                در پایان، از فعالین و متخصصینِ دلسوز خواستاریم جهت آگاهی بخشی و آموزش حفظ حریم خصوصی به عموم مردم، فعالیت خود را  بیش از پیش تدوام ببخشند.
+                            </p>
+                            <br><br>
+                            <p>
+                                جمعی از فعالین جامعه رمزارز و بلاک‌چین ایران
+                            </p>
+<br>
+<br>
+                            <p>
+                                دانلود فایل PDF
+                            </p>
+                            <p>
+                                دانلود چک‌سام فایل
+                            </p>
+
+                        </div>
+
+                        <!-- Key gen -->
+                        <div role="tabpanel" class="tab-pane" id="generator">
+
+                            <div class="row generator">
+                                <div class="col-md-5">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">مشخصات کلید</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <form action="index.html" name="keygen" id="keygen" method="post">
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="name">نام کامل</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
+                                                        <input class="form-control" name="name" placeholder="نام کامل" id="name" title="" required="" data-original-title="نام خود را وارد کنید" data-cip-id="name" type="text">
+                                                        <div class="input-group-addon">اجباری</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="email">ایمیل</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
+                                                        <input class="form-control" name="email" placeholder="ایمیل" id="email" title="" required="" data-original-title="یک ایمیل معتبر وارد کنید" data-cip-id="email" type="email">
+                                                        <div class="input-group-addon">اجباری</div>
+                                                    </div>
+                                                    <span id="helpBlock" class="help-block"><a href="index.html#" data-toggle="popover" title="" data-content="Your email address will be included as public information in your public PGP key, so your public key can be easily imported by third-party PGP software. If you do not supply your email address, your PGP decryption software may be unable to link your email address to your public PGP key, and therefore unable to automatically encrypt/decrypt email messages. As a result, you will have to manually decrypt messages each time you receive a PGP-encrypted message." data-original-title="Email address">ایمیل: چرا نیاز است؟</a></span>
+                                                </div>
+
+                                                <!-- <div class="form-group">
+                                                    <label class="sr-only" for="comments">توضیحات اختیاری</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></div>
+                                                        <input class="form-control" name="comments" placeholder="توضیحات اختیاری" id="comments" title="" data-original-title="توضیحات اختیاری را وارد کنید" data-cip-id="comments" type="text">
+                                                    </div>
+                                                </div> -->
+
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="algorithm">الگوریتم</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></div>
+                                                        <select class="form-control" name="algorithm" id="algorithm" title="" required="" data-original-title="Choose an encryption algorithm" data-cip-id="cIPJQ342845639">
+                                                            <option value="" disabled="disabled" selected="selected" class="disabled">الگوریتم را انتخاب کنید</option>
+                                                            <option value="rsa">RSA (Recommended)</option>
+                                                            <option value="ecc">ECC (Elliptic Curve Cryptography)</option>
+                                                        </select>
+                                                        <div class="input-group-addon">اجباری</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="bitlength">طول کلید</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span></div>
+                                                        <select class="form-control" name="bitlength" id="bitlength" title="" required="" disabled="disabled" data-original-title="Select a key size" data-cip-id="cIPJQ342845640">
+                                                            <option value="" class="disabled" selected="selected">اندازه کلید را انتخاب کنید</option>
+                                                        </select>
+                                                        <div class="input-group-addon">اجباری</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="expire">انقضاء</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span></div>
+                                                        <select name="expire" id="expire" class="form-control" title="" required="" data-original-title="Expiration of your subkeys" data-cip-id="cIPJQ342845641">
+                                                            <option value="" disabled="disabled" selected="selected" class="disabled">تاریخ انقضاء را انتخاب کنید</option>
+                                                            <option value="0">بدون انقضاء</option>
+                                                            <option value="1">۱ سال</option>
+                                                            <option value="2">۲ سال</option>
+                                                            <option value="4">۴ سال</option>
+                                                            <option value="8">۸ سال</option>
+                                                        </select>
+                                                        <div class="input-group-addon">اجباری</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="passphrase">رمز</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><span class="glyphicon glyphicon-text-background" aria-hidden="true"></span></div>
+                                                        <input class="form-control" name="passphrase" placeholder="رمز" id="passphrase" pattern=".{5,}" title="" required="" data-original-title="Enter a passphrase; at least 5 characters" data-cip-id="passphrase" type="password">
+                                                        <div class="input-group-addon">اجباری</div>
+                                                    </div>
+                                                    <span id="helpBlock" class="help-block"><a href="index.html#" data-toggle="popover" title="" data-content="Passphrase is a like a password to protect your private PGP key. This password offers an extra layer of protection in case someone manage to steal your public PGP key. Please pick a password you will remember, because if you forget this password, there is no way to recover your password and no way for you to decrypt PGP messages sent to you!" data-original-title="Passphrase">رمز: چرا نیاز است؟</a></span>
+                                                </div>
+
+                                                <input value="کلید هارا بسازید" id="generate_keys_btn" class="btn btn-primary btn-lg btn-block send" name="send" type="submit">
+                                                <a href="index.html" id="start_again_btn" class="btn btn-link btn-block hide">برای ساخت مجدد کلید ها کلیک کنید</a>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-7">
+
+                                    <input name="key_short_id" id="key_short_id" value="" type="hidden">
+                                    <input name="btn_update_ts" id="btn_update_ts" value="0" type="hidden">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">کلید عمومی</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <textarea class="form-control message" rows="7" name="pubkey" placeholder="کلید عمومی شما اینجا نمایش داده می‌شود." id="pubkey" readonly="readonly"></textarea>
+                                            <span id="helpBlock" class="help-block"><a href="index.html#download_pub_key" class="btn btn-danger download disabled" title="This button will be enabled after you generate your key pair." name="download_pub_key" id="download_pub_key"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> دانلود کلید عمومی (فایل .asc)</a> <a href="index.html#" class="btn btn-link" data-toggle="popover" title="" data-content="You can put this key on your website or at the bottom signature of your email messages. Anyone wishing to contact you in private will have your public PGP key to send you encrypted messages. This file contain the key in text format and can be opened as text." data-original-title="Public key">اطلاعات بیشتر</a>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">کلید خصوصی</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <textarea class="form-control message" rows="7" name="privkey" placeholder="کلید خصوصی شما اینجا نمایش داده می‌شود" id="privkey" readonly="readonly"></textarea>
+                                            <span id="helpBlock" class="help-block"><a href="index.html#download_priv_key" class="btn btn-danger download disabled" title="This button will be enabled after you generate your key pair." name="download_priv_key" id="download_priv_key"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> دانلود کلید خصوصی (فایل .asc)</a> <a href="index.html#" class="btn btn-link" data-toggle="popover" title="" data-content="Save your private PGP key in a file on your computer and keep it as confidential as possible. You will need it to decrypt PGP messages sent to you using your public PGP key. This file contain the key in text format and can be opened as text." data-original-title="Private key">اطلاعات بیشتر</a>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Sign message -->
+                        <div role="tabpanel" class="tab-pane" id="sign">
+                            <div class="row generator" style="display: flex;">
+                                <div class="col-md-7">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">کلید خصوصی شما</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <textarea class="form-control message" id="sign-private-key" rows="7" placeholder="کلید خصوصی خود را اینجا قرار دهید. (کلید ECC یا RSA)" title="ECC and RSA algorithms working both for sign and verify. You can use ECC keys here."></textarea>
+                                            <input type='file' onchange='openFile(event, "sign-private-key")'>
+                                            <br>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><span class="glyphicon glyphicon-text-background" aria-hidden="true"></span></div>
+                                                <input class="form-control" name="sign-passphrase" placeholder="رمز کلید خصوصی" id="sign-passphrase" pattern=".{5,}" title="Enter your private key passphrase" type="password">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5" style="display: flex; flex-direction: column;">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">انتخاب پیام برای امضاء</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="radio">
+                                                <label><input type="radio" name="opt-statements" id="opt-statements" checked value="statement-1">متن بیانیه شماره ۱ - ۲۵ مهرماه ۱۴۰۱</label>
+                                            </div>
+                                            <textarea style="display: none" class="form-control message" rows="7" id="statement-1" value="salam"></textarea>
+                                            <!-- <input id="sign_src" type='file' onchange='openFile(event, "sign-plain-text")'><br> -->
+                                            <br>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary" id="sign-button">تولید امضاء</button>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    
+                                </div>
+                            </div>
+                            <div class="row generator">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">امضای تولید شده</h3>
+                                        </div>
+                                        <div id="vrAlert_signed"></div>
+                                        <div class="panel-body">
+                                            <form action="index.html" name="gotogithub" id="gotogithub" method="post">
+                                                <textarea class="form-control message col-md-6" style="margin: 20px; margin-top: 0px;" rows="7" id="signed-text" placeholder="امضاء دیجیتال شما اینجا نمایش داده می شود" readonly="readonly"></textarea>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="name">نام کامل</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
+                                                        <input class="form-control" name="name" placeholder="نام کامل" id="togithub_name" title="" required="" data-original-title="نام خود را وارد کنید" data-cip-id="name" type="text">
+                                                        <div class="input-group-addon">اجباری</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="email">ایمیل</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
+                                                        <input class="form-control" name="email" placeholder="ایمیل" id="togithub_email" title="" required="" data-original-title="یک ایمیل معتبر وارد کنید" data-cip-id="email" type="email">
+                                                        <div class="input-group-addon">اجباری</div>
+                                                    </div>
+                                                </div>
+
+                                                <a id="download-signed-text" style="display:none;" href="javascript:void(0);" title="">
+                                                    <button class="btn btn-secondary" type="submit">انتقال به گیتهاب برای ثبت امضاء</button>
+                                                </a>
+                                            </form>
+                                            <br>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Verify signed message -->
+                        <div role="tabpanel" class="tab-pane" id="verify">
+                            <div class="row generator">
+                                <div class="col-md-5">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Signer's Public Key</h3>
+                                        </div>
+                                        <div class="panel-body" title="Signed using private key and verified using public key.">
+                                            <textarea class="form-control message" id="Signer-public-key" rows="7" placeholder="Paste signer&#39;s public key here."></textarea>
+                                            <input type='file' onchange='openFile(event, "Signer-public-key")'><br>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">PGP-signed Message</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <textarea class="form-control message" rows="7" id="Unverified-plain-text" placeholder="Paste PGP-signed message here."></textarea>
+                                            <input type='file' onchange='openFile(event, "Unverified-plain-text")'><br>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-primary" id="verify-signature">Verify signature</button>
+                                    <br>
+                                    <br>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Raw Message and Status</h3>
+                                        </div>
+                                        <div id="vrAlert"></div>
+                                        <div class="panel-body">
+                                            <textarea class="form-control message" rows="7" id="pure-text" placeholder="Here you'll see the raw message if it's signed and verified." readonly=""></textarea>
+                                            <br>
+                                            <a id="download_verified_as_binary" style="display:none; float: right" href="javascript:void(0);">
+                                                Download as binary
+                                            </a>
+                                            <a id="download-pure-text" style="display:none;" href="javascript:void(0);">
+                                                <button class="btn btn-secondary">Download message</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Signers -->
+                        <div role="tabpanel" class="tab-pane" id="signers">
+                        </div>
+
+                        <!-- FAQ -->
+                        <div role="tabpanel" class="tab-pane" id="faq">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.fa">
+                <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+            </a>
+            <br />این پروژه تحت لیسانس<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.fa"> ارجاع 4.0 بین‌المللی (CC BY 4.0) </a> منتشر شده است.
+            <p>
+                <a href="https://github.com"><img src="assets/github.svg" alt="github"></a>
+            </p>
+        </div>
+    </div>
+      
+
+
+</body>
+
+</html>
