@@ -25,4 +25,4 @@ jobs:
         base: main
         add-paths: |
           SIGNATURES/*.sig
-          STATEMENT/SHA256SUMS.asc
+          STATEMENT/SHA256SUM.asc
