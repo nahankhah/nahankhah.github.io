@@ -1,6 +1,6 @@
-name: Signature
-description: Sign the petition
-labels: [add-signature]
+name: Signature by email
+description: Sign the petition by email
+labels: [add-signature-email]
 body:
 - type: input
   id: name
@@ -12,11 +12,5 @@ body:
   id: email
   attributes:
     label: Your email
-  validations:
-    required: false
-- type: textarea
-  id: signature
-  attributes:
-    label: Your signature
   validations:
     required: true

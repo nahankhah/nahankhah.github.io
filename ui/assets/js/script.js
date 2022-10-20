@@ -196,6 +196,11 @@ $(document).ready(function() {
     goToGithub();
   });
 
+  $('form#gotogithubbymail').submit(function(e) {
+    e.preventDefault();
+    goToGithubBymail();
+  });
+
   $('#download_priv_key').on('click', downloadPrivKey);
   $('#download_pub_key').on('click', downloadPubKey);
 
@@ -235,12 +240,30 @@ $(document).ready(function() {
     var email = $('#togithub_email').val();
     var signature = $("#signed-text").val();
     var title = encodeURIComponent("Add my signature");
+
+    name = encodeURIComponent("```NAME " + name + "\n```");
+    email = encodeURIComponent("```EMAIL " + email + "\n```");
     signature = "```SIGNATURE\n" + signature + "\n```";
     var signatureUriEncoded = encodeURIComponent(signature);
 
     const issuesURL = "https://github.com/nahankhah/nahankhah.github.io/issues/new?labels=add-signature&template=signature.yaml"
 
     const url = `${issuesURL}&title=${title}&name=${name}&email=${email}&signature=${signatureUriEncoded}`
+    
+    window.open(url, "_blank").focus()
+  }
+
+  function goToGithubBymail() {
+    var name = $('#togithubmail_name').val();
+    var email = $('#togithubmail_email').val();
+    var title = encodeURIComponent("Add my signature");
+
+    name = encodeURIComponent("```NAME " + name + "\n```");
+    email = encodeURIComponent("```EMAIL " + email + "\n```");
+
+    const issuesURL = "https://github.com/nahankhah/nahankhah.github.io/issues/new?labels=add-signature&template=signature-email.yaml"
+
+    const url = `${issuesURL}&title=${title}&name=${name}&email=${email}`
     
     window.open(url, "_blank").focus()
   }
